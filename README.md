@@ -41,6 +41,19 @@
 
 ## orders テーブル
 
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| user_id | references | foreign_key: true |
+| item_id | references | foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
+- has_one :address
+
+
+## address テーブル
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
 | postal        | string     | null: false       |
@@ -49,11 +62,7 @@
 | address       | string     | null: false       |
 | buil          | string     |                   |
 | tel           | string     | null: false       |
-| user_id       | references | foreign_key: true |
-| item_id       | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
-
+- belongs_to :order
