@@ -2,16 +2,17 @@
 
 ## users テーブル
 
-| Column     | Type    | Options     |
-| ---------- | ------- | ----------- |
-| nick_name  | string  | null: false |
-| email      | string  | null: false |
-| password   | string  | null: false |
-| first_name | string  | null: false |
-| last_name  | string  | null: false |
-| year_bi    | integer | null: false |
-| month_bi   | integer | null: false |
-| day_bi     | integer | null: false |
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| nick_name          | string  | null: false |
+| email              | string  | null: false |
+| password           | string  | null: false |
+| encrypted_password | string  | null: false |
+| first_name         | string  | null: false |
+| last_name          | string  | null: false |
+| year_bi            | date    | null: false |
+| month_bi           | date    | null: false |
+| day_bi             | date    | null: false |
 
 ### Association
 
@@ -20,18 +21,17 @@
 
 ## items テーブル
 
-| Column       | Type       | Options     |
-| ------------ | ---------- | ----------- |
-| image        |            |             |
-| goods        | string     | null: false |
-| item_text    | text       | null: false |
-| category     | string     | null: false |
-| condition    | string     | null: false |
-| postage      | integer    | null: false |
-| area         | string     | null: false |
-| days_deliver | integer    | null: false |
-| price        | integer    | null: false |
-| user_id      | references |             |
+| Column       | Type       | Options           |
+| ------------ | ---------- | ----------------- |
+| goods        | string     | null: false       |
+| item_text    | text       | null: false       |
+| category     | integer    | null: false       |
+| condition    | integer    | null: false       |
+| postage      | integer    | null: false       |
+| area         | integer    | null: false       |
+| days_deliver | integer    | null: false       |
+| price        | integer    | null: false       |
+| user_id      | references | foreign_key: true |
 
 ### Association
 
@@ -42,20 +42,16 @@
 
 ## orders テーブル
 
-| Column     | Type       | Options     |
-| ---------- | ---------- | ----------- |
-| card       | integer    |             |
-| exp_month  | integer    | null: false |
-| exp_year   | integer    | null: false |
-| cvv        | integer    | null: false |
-| postal     | integer    | null: false |
-| prefecture | string     | null: false |
-| city       | string     | null: false |
-| address    | string     | null: false |
-| buil       | string     |             |
-| tel        | integer    | null: false |
-| user_id    | references |             |
-| item_id    | references |             |
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| postal     | string     | null: false       |
+| prefecture | integer    | null: false       |
+| city       | string     | null: false       |
+| address    | string     | null: false       |
+| buil       | string     |                   |
+| tel        | string     | null: false       |
+| user_id    | references | foreign_key: true |
+| item_id    | references | foreign_key: true |
 
 ### Association
 
