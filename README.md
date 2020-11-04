@@ -10,10 +10,7 @@
 | encrypted_password | string  | null: false |
 | first_name         | string  | null: false |
 | last_name          | string  | null: false |
-| year_bi            | date    | null: false |
-| month_bi           | date    | null: false |
-| day_bi             | date    | null: false |
-
+| birth              | date    | null: false |
 
 ### Association
 
