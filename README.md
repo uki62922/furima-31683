@@ -14,6 +14,7 @@
 | month_bi           | date    | null: false |
 | day_bi             | date    | null: false |
 
+
 ### Association
 
 - has_many :items
