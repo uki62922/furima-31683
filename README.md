@@ -30,21 +30,21 @@
 | area_id         | integer    | null: false       |
 | days_deliver_id | integer    | null: false       |
 | price           | integer    | null: false       |
-| user_id         | references | foreign_key: true |
+| user            | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :oder
+- has_one :order
 
 
 
 ## orders テーブル
 
-| Column  | Type       | Options           |
-| ------- | ---------- | ----------------- |
-| user_id | references | foreign_key: true |
-| item_id | references | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
@@ -62,6 +62,8 @@
 | address       | string     | null: false       |
 | buil          | string     |                   |
 | tel           | string     | null: false       |
+| order         | references | foreign_key: true |
+
 
 ### Association
 
