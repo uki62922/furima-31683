@@ -9,16 +9,7 @@ describe User do
       it "nick_name、email、passwordとpassword_confirmation、first_nameとlast_name、first_name_kanaとlast_name_kanaとbirthが存在すれば登録できる" do
         expect(@user).to be_valid
       end
-      it "passwordが半角英数字で6文字以上であれば登録できる" do
-        expect(@user).to be_valid
-      end
-      it "first_nameとlast_nameが全角であれば登録できる" do
-        expect(@user).to be_valid
-      end
-      it "first_name_kanaとlast_name_kanaが全角カタカナであれば登録できる" do
-        expect(@user).to be_valid
-      end
-
+   
     end
 
     context '新規登録がうまくいかないとき' do
@@ -79,6 +70,16 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank", "Last name is invalid")
       end
+      it "first_nameが全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+        @user.first_name = "aaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid")
+      end
+      it "last_nameが全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+        @user.last_name = "aaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name is invalid")
+      end
       it "first_name_kanaが空だと登録できない" do
         @user.first_name_kana = ""
         @user.valid?
@@ -88,6 +89,21 @@ describe User do
         @user.last_name_kana = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name kana can't be blank", "Last name kana is invalid")
+      end
+      it "first_name_kanaがカタカナでなければ登録できない" do
+        @user.first_name_kana = "aaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid")
+      end
+      it "last_name_kanaがカタカナでなければ登録できない" do
+        @user.last_name_kana = "aaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid")
+      end
+      it "birthが空だと登録できない" do
+        @user.birth = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Birth can't be blank")
       end
     end
   end
