@@ -14,4 +14,15 @@ class Item < ApplicationRecord
   validates :price, presence: true, format: {with: /\A[0-9]+\z/,greater_than_or_equal_to: 300,less_than_or_equal_to: 99999999}
   validates :image, presence: true
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :area
+  belongs_to :condition
+  belongs_to :postage
+  belongs_to :days_deliver
+  validates :category_id, numericality: { other_than: 1 } 
+  validates :area_id, numericality: { other_than: 1 }
+  validates :condition_id, numericality: { other_than: 1 } 
+  validates :postage_id, numericality: { other_than: 1 }
+  validates :days_deliver_id, numericality: { other_than: 1 }
 end
