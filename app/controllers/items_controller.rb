@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end 
     @item.destroy
+    redirect_to root_path
   end
 
 
