@@ -11,7 +11,8 @@ end
   validates :prefecture_id,    numericality: { other_than: 1 }
 
   def save
-    Oder.create(user_id: user_id, item_id: item_id)
+    order = Order.create(user_id: user_id, item_id: item_id)
+
     Address.create(postal: postal, prefecture_id: prefecture_id, city: city, address: address, buil: buil, tel: tel, order_id: order.id)
   end
 end
