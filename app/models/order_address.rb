@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal, :prefecture_id, :city, :address, :buil, :tel;
+  attr_accessor :user_id, :item_id, :postal, :prefecture_id, :city, :address, :buil, :tel, :token;
 
   with_options presence: true do
   validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/}
