@@ -52,7 +52,7 @@ describe User do
         @order_addres.valid?
         expect(@order_addres.errors.full_messages).to include("Tel is invalid")
       end
-      it "電話番号が11桁以内でなければ購入できない" do
+      it "電話番号にハイフンがあると購入できない" do
         @order_addres.tel = "090‐3456‐1789"
         @order_addres.valid?
         expect(@order_addres.errors.full_messages).to include("Tel is invalid")
