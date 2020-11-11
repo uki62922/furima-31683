@@ -9,7 +9,9 @@ describe User do
       it "郵便番号と都道府県と市区町村と番地と電話番号が存在すれば購入できる" do
         expect(@order_addres).to be_valid
       end
-   
+      it "priceとtokenがあれば保存ができること" do
+        expect(@order_addres).to be_valid
+      end
     end
 
     context '購入がうまくいかないとき' do
@@ -47,6 +49,11 @@ describe User do
         @order_addres.tel = "090123456789"
         @order_addres.valid?
         expect(@order_addres.errors.full_messages).to include("Tel is invalid")
+      end
+        it "tokenが空では登録できないこと" do
+          @order_addres.token = nil
+          @order_addres.valid?
+          expect(@order_addres.errors.full_messages).to include("Token can't be blank")
       end
     end
   end

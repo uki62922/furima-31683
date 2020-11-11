@@ -5,5 +5,6 @@ FactoryBot.define do
     address              {"あああ"}
     tel                  {"0901234123"}
     prefecture_id             {2}
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end
