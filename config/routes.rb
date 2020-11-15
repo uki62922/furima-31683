@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items do
     resources :orders
-    resources :comments, only: :create
+    resources :comments
 
   end
   root to: 'items#index'
