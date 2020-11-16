@@ -11,7 +11,12 @@ consumer.subscriptions.create("CommentChannel", {
 
   received(data) {
     const html = `
-      <p class="text"><a href ="#" class="comment-user" >${data.nickname}</a>： ${data.content.text}</p>
+      <p class="text"><a href ="#" class="comment-user" >${data.nickname}</a> 
+      ${data.content.text}
+      <div class="comment-time">
+      ${"now"}
+      </div>
+      </p>
     `; //ここにHTMLを追加する
     const comments = document.getElementById('comments')
     const newComment = document.getElementById('comment_text');

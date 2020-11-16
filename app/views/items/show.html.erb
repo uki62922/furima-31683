@@ -93,8 +93,11 @@
         <%# <% @comments.last(3).each do |comment| %>
         <% @comments.each do |comment| %>
           <p class= "text">
-              <%= link_to comment.user.nick_name, "#" , class:"comment-user" %>：
+              <%= link_to comment.user.nick_name, "#" , class:"comment-user" %>
               <%= comment.text %>
+              <div class="comment-time">
+              <%= time_ago_in_words(comment.created_at) %>
+              </div>
           </p>
         <% end %>
       <% end %>
