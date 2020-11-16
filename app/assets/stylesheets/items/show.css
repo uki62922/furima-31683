@@ -139,6 +139,27 @@
 
 
 /* /商品の概要 */
+.comments{
+  border: solid 2px #dedede;
+  margin:40px;
+  padding:20px;
+  width:60% ;
+  background-color:#FFFFFF;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 35vh;
+}
+
+.comment-user{
+  color:deepskyblue;
+}
+
+.text {
+  font-size:16px;
+  padding:20px 30px 30px 40px;
+
+  /* border-top: solid 1px #dedede; */
+}
 
 .comment-box {
   width: 40vw;

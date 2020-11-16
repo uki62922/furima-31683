@@ -85,13 +85,16 @@
     </div>
   </div>
   <%# /商品の概要 %>
+  <br>
+  <h3>＜コメント一覧＞</h3>
     <div class="comments" id="comments">
-      <h4>＜コメント一覧＞</h4>
+      
       <% if @comments %>
+        <%# <% @comments.last(3).each do |comment| %>
         <% @comments.each do |comment| %>
-          <p>
-            <%= link_to comment.user.nick_name, "#" %>
-            <%= comment.text %>
+          <p class= "text">
+              <%= link_to comment.user.nick_name, "#" , class:"comment-user" %>：
+              <%= comment.text %>
           </p>
         <% end %>
       <% end %>

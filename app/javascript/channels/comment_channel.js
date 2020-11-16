@@ -10,10 +10,11 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-    const html = `<p>${data.nickname}${data.content.text}</p>`;
+    const html = `
+      <p class="text"><a href ="#" class="comment-user" >${data.nickname}</a>： ${data.content.text}</p>
+    `; //ここにHTMLを追加する
     const comments = document.getElementById('comments')
     const newComment = document.getElementById('comment_text');
-    comments.insertAdjacentHTML('afterend', html);
-    console.log(newComment)
+    comments.insertAdjacentHTML('afterbegin', html);
     newComment.value='';  }
 });
