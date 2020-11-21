@@ -102,6 +102,7 @@
         <% end %>
       <% end %>
     </div>
+    <% if user_signed_in? %>
   <div class="comment-box">
     <%= form_with(model: [@item, @comment], local: true) do |form| %>
       <%= form.text_area :text, class:"comment-text" %>
@@ -116,6 +117,7 @@
       <% end %>
       <% end %>
   </div>
+  <% end %>
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
