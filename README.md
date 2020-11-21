@@ -14,9 +14,10 @@
 | birth              | date    | null: false |
 
 ### Association
-
+ 
 - has_many :items
 - has_many :orders
+- has_many :comment
 
 ## items テーブル
 
@@ -36,6 +37,7 @@
 
 - belongs_to :user
 - has_one :order
+- has_many :comment
 
 
 
@@ -68,3 +70,16 @@
 ### Association
 
 - belongs_to :order
+
+## comments テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| text   | text       | null: false       |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
