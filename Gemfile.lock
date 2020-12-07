@@ -330,7 +330,12 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 6.0.0)
   rails_12factor
+<<<<<<< Updated upstream
   rspec-rails (~> 4.0.0)
+=======
+  ransack
+  rspec-rails
+>>>>>>> Stashed changes
   rubocop
   sass-rails (~> 5)
   selenium-webdriver
